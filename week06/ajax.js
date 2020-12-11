@@ -7,12 +7,14 @@ function getrandomUser(){
             let elFirstName=document.getElementById("firstName");
             let elLastName=document.getElementById("lastName");
             let elJasonResult=document.getElementById("jsonResult");
-            let elUSerImage=document.getElementById("userImage");
+            let elUserImage=document.getElementById("userImage");
             let elPhone=document.getElementById("phone");
             let elAddress=document.getElementById("address");
             let elEmail=document.getElementById("email");
 
-            elFirstName.innerHTML = data.result[0].name,first;
+            elFirstName.innerHTML = data.results[0].name,first;
+            elUserImage.src = data.results[0].picture.large;
+            elUserImage.title = data.results[0].name.first + " " + data.results[0].name.last;
             
             elJasonResult.innerHTML = this.response;
         }
