@@ -15,7 +15,16 @@ function getrandomUser(){
             elFirstName.innerHTML = data.results[0].name,first;
             elUserImage.src = data.results[0].picture.large;
             elUserImage.title = data.results[0].name.first + " " + data.results[0].name.last;
-            
+            elLastName.innerHTML = data.results[0].name,last;
+            elPhone.innerHTML = data.results[0].phone;
+            elFirstName.innerHTML = data.results[0].location.street.number + ", " + 
+            data.results[0].location.street.name + ", <br>"
+            + data.results[0].location.postcode + " " 
+            + data.results.city + ",<br>" 
+            + data.results[0].location.country;
+            elEmail.innerHTML = data.results[0].email;
+
+
             elJasonResult.innerHTML = this.response;
         }
     }
@@ -25,6 +34,6 @@ function getrandomUser(){
 }
 
 let elGetRandomUser = document.getElementById("getRandomUserBtn");
-elGetRandomUser.addEventListener("click", fucntion () {
+elGetRandomUser.addEventListener("click", function () {
     getrandomUser();
 }); 
