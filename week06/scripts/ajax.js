@@ -3,7 +3,7 @@ function getrandomUser(){
 
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            let data = JSON.parse(this,response);
+            let data = JSON.parse(this.response);
             let elFirstName=document.getElementById("firstName");
             let elLastName=document.getElementById("lastName");
             let elJasonResult=document.getElementById("jsonResult");
@@ -20,7 +20,7 @@ function getrandomUser(){
             elFirstName.innerHTML = data.results[0].location.street.number + ", " + 
             data.results[0].location.street.name + ", <br>"
             + data.results[0].location.postcode + " " 
-            + data.results.city + ",<br>" 
+            + data.results[0].city + ",<br>" 
             + data.results[0].location.country;
             elEmail.innerHTML = data.results[0].email;
 
