@@ -7,3 +7,8 @@ function GetBooking() {
             console.log(json.sheet1S);
         }); 
 }
+
+let getBookingsBtn = document.getElementById("getBokking");
+getBookingsBtn.addEventListener("click", function () {
+    GetBookings();
+});
