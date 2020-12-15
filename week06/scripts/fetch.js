@@ -24,7 +24,7 @@ function GetBooking() {
         }); 
 }
 
-let getBookingsBtn = document.getElementById("getBokking");
+let getBookingsBtn = document.getElementById("getBooking");
 getBookingsBtn.addEventListener("click", function () {
     GetBookings();
 });
