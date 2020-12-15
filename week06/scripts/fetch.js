@@ -11,8 +11,8 @@ function GetBooking() {
             let jsonDiv = document.getElementById("json");
             jsonDiv.innerHTMl = "";
             jsonDiv.innerHTML = json.bookings; 
-            
-            for(let 1 =0; i < json.bookings.length;i++){
+
+            for(let i =0; i < json.bookings.length;i++){
                 let gName = json.bookings[i].name;
                 let gEmail = json.bookings[i].email;
                 let gPax = json.bookings[i].pax;
