@@ -1,4 +1,4 @@
-function GetBooking() {
+function GetBookings() {
     let url = 'https://api.sheety.co/e8e5c93834133be34d5302cea5c6ceda/bookingApp/sheet1';
     fetch(url)
         .then((response) => response.json())
