@@ -4,19 +4,19 @@ function GetBookings() {
         .then((response) => response.json())
         .then(json => {
             // Do something with the data
-            console.log(json.sheet1S);
+            console.log(json.sheet1);
             let bookingList = document.getElementById("bookingList");
             bookingList.innerHTML = "";
 
             let jsonDiv = document.getElementById("json");
             jsonDiv.innerHTMl = "";
-            jsonDiv.innerHTML = json.bookings; 
+            jsonDiv.innerHTML = json.sheet1; 
 
-            for(let i =0; i < json.bookings.length;i++){
-                let gName = json.bookings[i].name;
-                let gEmail = json.bookings[i].email;
-                let gPax = json.bookings[i].pax;
-                let gId = json.bookings[i].id;
+            for(let i =0; i < json.sheet1.length;i++){
+                let gName = json.sheet1[i].name;
+                let gEmail = json.sheet1[i].email;
+                let gPax = json.sheet1[i].pax;
+                let gId = json.sheet1[i].id;
 
                 bookingList.innerHTML += gId + "-" + gName + ", " +
                     gEmail + ", pax:" + gPax + "<br>";
