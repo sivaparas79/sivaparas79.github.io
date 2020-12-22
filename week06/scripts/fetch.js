@@ -10,9 +10,9 @@ function GetBookings() {
 
             let jsonDiv = document.getElementById("json");
             jsonDiv.innerHTMl = "";
-            jsonDiv.innerHTML = json.sheet1; 
+            jsonDiv.innerHTML = json.sheet1;
 
-            for(let i =0; i < json.sheet1.length;i++){
+            for (let i = 0; i < json.sheet1.length; i++) {
                 let gName = json.sheet1[i].name;
                 let gEmail = json.sheet1[i].email;
                 let gPax = json.sheet1[i].pax;
@@ -21,7 +21,7 @@ function GetBookings() {
                 bookingList.innerHTML += gId + "-" + gName + ", " +
                     gEmail + ", pax:" + gPax + "<br>";
             }
-        }); 
+        });
 }
 
 let getBookingsBtn = document.getElementById("getBooking");
@@ -30,7 +30,7 @@ getBookingsBtn.addEventListener("click", function () {
 });
 
 function BookNow(guestName, guestEmail, guestPax) {
-    let url = "";
+    let url = "https://api.sheety.co/e8e5c93834133be34d5302cea5c6ceda/bookingApp/bookings";
     let body = {
         booking: {
             name: guestName,
@@ -45,17 +45,17 @@ function BookNow(guestName, guestEmail, guestPax) {
             "Content-Type": "application/json"
         }
     })
-    .then((response) => response.json())
-    .then(json => {
-        //Do Something with object 
-        //console.log(json.booking);
-        let bookMsg = document.getElementById("bookMsg");
-        bookMsg.innerHTML = json.bokking.name + " added!"
-        GetBokkings();
-    });
+        .then((response) => response.json())
+        .then(json => {
+            //Do Something with object 
+            //console.log(json.booking);
+            let bookMsg = document.getElementById("bookMsg");
+            bookMsg.innerHTML = json.bokking.name + " added!"
+            GetBookings();
+        });
 }
 
-let bookNow = document.getElementById("bookNow"); 
+let bookNow = document.getElementById("bookNow");
 bookNow.addEventListener("click", function () {
     let gName = document.getElementById("guestName").value;
     let gEmail = document.getElementById("guestEmail").value;
@@ -65,18 +65,18 @@ bookNow.addEventListener("click", function () {
 });
 
 function DeleteBooking(id) {
-    let url = '' + id; 
+    let url = '' + id;
     fetch(url, {
-        method: 'DELETE', 
+        method: 'DELETE',
     })
         .then((response) => {
-        document.getElementById("deleteMsg").innerHTML = "Booking Deleted!";
-        GetBookings(); 
-        }); 
+            document.getElementById("deleteMsg").innerHTML = "Booking Deleted!";
+            GetBookings();
+        });
 }
 
 let deleteBooking = document.getElementById("deleteBokking");
-        DeleteBooking.addEventListener("click", function () {
-            let deleteId = document.getElementById("deleteId").value;
-            DeleteBokking(deleteId);
+DeleteBooking.addEventListener("click", function () {
+    let deleteId = document.getElementById("deleteId").value;
+    DeleteBokking(deleteId);
 }); 
