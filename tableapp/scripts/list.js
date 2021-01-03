@@ -16,8 +16,9 @@ function GetBookings() {
             for (let i = 0; i < json.sheet1.length; i++) {
                 let gName = json.sheet1[i].name;
                 let gEmail = json.sheet1[i].email;
-                let gPax = json.sheet1[i].pax;
+                let gTime = json.sheet1[i].time;
                 let gId = json.sheet1[i].id;
+                let gDate = json.sheet1[i].date;
                 let gRemarks = json.bookings[i].remarks;
                 let buttonId = "delete" + gId;
 
@@ -25,8 +26,9 @@ function GetBookings() {
                 row.insertCell(0).innerHTML = gId;
                 row.insertCell(1).innerHTML = gName;
                 row.insertCell(2).innerHTML = gEmail;
-                row.insertCell(3).innerHTML = gPax;
-                row.insertCell(4).innerHTML = gRemarks;
+                row.insertCell(3).innerHTML = gTime;
+                row.insertCell(4).innerHTML = gDate;
+                row.insertCell(5).innerHTML = gRemarks;
                 row.insertCell(1).innerHTML = "<button id='" +
                     buttonId + "' class='btn btn-danger'>Delete</button>";
 
