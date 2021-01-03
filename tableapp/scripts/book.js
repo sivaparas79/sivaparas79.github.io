@@ -1,10 +1,11 @@
-function BookNow(guestName, guestEmail, guestPax, guestRemarks) {
-    let url = "";
+function BookNow(guestName, guestEmail, guestTime, guestDate guestRemarks) {
+    let url = 'https://api.sheety.co/e8e5c93834133be34d5302cea5c6ceda/bookingApp/bookings';
     let body = {
         booking: {
             name: guestName,
             email: guestEmail,
-            pax: guestPax,
+            date: guestDate,
+            time: guestTime,
             remarks: guestRemarks
         }
     }
@@ -24,10 +25,23 @@ function BookNow(guestName, guestEmail, guestPax, guestRemarks) {
 window.addEventListener("load", function () {
     document.getElementById("bookNow").addEventListener("click", function () {
         let userName = document.getElementById("userName").value;
+        if (userName === "") {
+            alert("Name cannot be empty!");
+            return;
+        }
         let userEmail = document.getElementById("userEmail").value;
-        let userPax = document.getElementById("userPax").value;
+        if (userEmail === "") {
+            alert("Email cannot be empty!");
+            return;
+        }
+        let userDate = document.getElementById("userDate").value;
+        if (userDate === "") {
+            alert("Date cannot be empty!");
+            return;
+        }
+        let userTime = document.getElementById("userTime").value;
         let userRemarks = document.getElementById("userRemarks").value;
 
-        BookNow(userName, userEmial, userPax, userRemarks);
+        BookNow(userName, userEmail, userDate, userTime, userRemarks);
     });
 });
