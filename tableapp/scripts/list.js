@@ -4,7 +4,7 @@ function GetBookings() {
         .then((response) => response.json())
         .then(json => {
             // Do something with the data
-            console.log(json.sheet1);
+            console.log(json.bookings);
             let bookingList = document.getElementById("booking-list");
             let bookingIds = [];
 
@@ -13,12 +13,12 @@ function GetBookings() {
                 bookingList.deleteRow(k);
             }
 
-            for (let i = 0; i < json.sheet1.length; i++) {
-                let gId = json.sheet1[i].id;
-                let gName = json.sheet1[i].name;
-                let gEmail = json.sheet1[i].email;
-                let gDate = json.sheet1[i].date;
-                let gTime = json.sheet1[i].time;
+            for (let i = 0; i < json.bookings.length; i++) {
+                let gId = json.bookings[i].id;
+                let gName = json.bookings[i].name;
+                let gEmail = json.bookings[i].email;
+                let gDate = json.bookings[i].date;
+                let gTime = json.bookings[i].time;
                 let gRemarks = json.bookings[i].remarks;
                 let buttonId = "delete" + gId;
 
